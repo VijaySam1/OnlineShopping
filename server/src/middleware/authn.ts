@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import EnvVars from '../configurations/configenv';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { USER } from '../model/user';
+import { ENV_VARS } from '../configurations/configenv';
 
 // this middleware handles authentication using JWT token
 export const authentication = (req: Request, res: Response, next: NextFunction) => {
@@ -10,7 +10,7 @@ export const authentication = (req: Request, res: Response, next: NextFunction) 
   if (authHeader) {
     const token = authHeader && authHeader.split(' ')[1];
     if (token == null) return res.sendStatus(401);
-    jwt.verify(token, EnvVars.jwt.authKey, async (err) => {
+    jwt.verify(token, ENV_VARS.jwt.authKey, async (err) => {
       if (err) return res.status(400).send({ message: "bad request" });
       
       const decode= jwt.decode(token) as JwtPayload;

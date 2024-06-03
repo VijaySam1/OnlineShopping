@@ -6,7 +6,7 @@ import userRoute from "./routers/userRoute";
 app.use(express.urlencoded({ extended: true }));
 import bodyParser from "body-parser";
 import productRoutes from "./routers/productRoutes";
-import ENV_VARS from "./configurations/configenv";
+import { ENV_VARS } from "./configurations/configenv";
 
 app.use(bodyParser.json());
 

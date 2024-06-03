@@ -28,7 +28,7 @@ const AllProducts = () => {
     };
 
     fetchProducts();
-  }, []);
+  }, [products]);
 
   const productComponents = [];
   for (let i = 0; i < products.length; i++) {

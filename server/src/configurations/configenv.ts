@@ -7,7 +7,7 @@ dotenv.config(
   },
 );
 
-const ENV_VARS={
+export const ENV_VARS={
   db:{
     url:process.env.MONGO_URL ??'',
   },
@@ -15,4 +15,3 @@ const ENV_VARS={
     authKey:process.env.JWT_KEY ??'',
   },
 };
-export default ENV_VARS;
