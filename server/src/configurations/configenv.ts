@@ -1,0 +1,18 @@
+import path from 'path';
+
+import * as dotenv from 'dotenv';
+dotenv.config(
+  {
+    path: path.join(__dirname, "../.env"),
+  },
+);
+
+const ENV_VARS={
+  db:{
+    url:process.env.MONGO_URL ??'',
+  },
+  jwt:{
+    authKey:process.env.JWT_KEY ??'',
+  },
+};
+export default ENV_VARS;
